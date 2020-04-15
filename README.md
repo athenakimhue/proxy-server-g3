@@ -16,6 +16,8 @@
  && cp /usr/src/proxy-server-g3/conf/modsecurity.conf /usr/local/nginx/conf/
  && cp /usr/src/proxy-server-g3/conf/unicode.mapping /usr/local/nginx/conf/
  && cp -r /usr/src/proxy-server-g3/conf/owasp-modsecurity-crs /usr/local/nginx/conf/
+ && cp /usr/src/proxy-server-g3/owasp-modsecurity-crs/crs-setup.conf /usr/local/nginx/conf/owasp-modsecurity-crs/
+
 
 
  
