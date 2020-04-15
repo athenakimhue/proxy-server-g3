@@ -1,9 +1,9 @@
 ### proxy-server-g3
-1. Update env
+#1. Update env
  - apt-get update
  - apt-get install -y git build-essential libpcre3 libpcre3-dev libssl-dev libtool autoconf apache2-dev libxml2-dev libcurl4-openssl-dev automake pkgconf
 
-2. Setup proxy-server
+#2. Setup proxy-server
  - cd /usr/src
  - git clone https://github.com/athenakimhue/proxy-server-g3.git
  - cd /usr/src/proxy-server-g3/ModSecurity/
