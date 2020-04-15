@@ -1,0 +1,206 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    background: #f1f1f1;
+  }
+  
+  /* Header/Blog Title */
+  .header {
+ 
+    text-align: center;
+    background: white;
+    
+  }
+  
+  .header h1 {
+    font-size: 50px;
+  }
+  
+  /* Style the top navigation bar */
+  .topnav {
+    overflow: hidden;
+    background: white;
+
+  }
+  
+  /* Style the topnav links */
+  .topnav a {
+    font-size: 20px;
+    float: left;
+    display: block;
+    color: #0c1b11;
+    text-align: center;
+
+    padding: 20px 70px;
+    margin-left: 4px;
+    text-decoration: none;
+  }
+  
+  /* Change color on hover */
+  .topnav a:hover {
+    background-color: crimson;
+    color: white;
+    font-style: italic;
+  }
+  
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {   
+    float: left;
+    width: 60%;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 40%;
+    background-color: #f1f1f1;
+    padding-left: 20px;
+  }
+  
+  /* Fake image */
+ 
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+   .roww:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+
+.footer-distributed{
+	background: rgb(84, 130, 146);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	text-align: left;
+	font: bold 16px sans-serif;
+  padding: 2px 80px;
+
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 60%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Open Sans', cursive;
+	margin: 0;
+}
+
+.footer-distributed h3 span{
+	color:  lightseagreen;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+  font-weight:400;
+	text-decoration: none;
+	color:  inherit;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+  width: 35%;
+  color: antiquewhite;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+
+/* ----------------------------- */
+.bt1 {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: white;
+  color: black;
+  border-top: 2px solid #DC143C;
+  border-bottom: 2px solid rgb(63, 20, 220);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+  }
+ .bt2 {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: white;
+  color: black;
+  border-left: 2px solid #DC143C;
+  border-right: 2px solid rgb(63, 20, 220);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+  }
+  /* ----------------------------- */
+  table {
+
+    font-size: 20px;
+    border: 1px black;
+    width: 100%;
+    padding: 5px;
+  }
+
+ th, td {
+    text-align: left;
+    padding: 20px;
+    text-decoration: none;
+
+  }
+
+  table tr td a{
+    text-decoration: none;
+  }
+
+  tr:nth-child(even){background-color: #b3e4e1}
+
+  th {
+    border-spacing: 10px;
+    background-color: #4CAF50;
+    color: white;
+  }

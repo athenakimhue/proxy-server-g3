@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	.create_site {
+		  font-family: 'Courier New', Courier, monospace;
+		  color: black;
+		  padding: 15px 32px;
+		  border-left: 2px solid #DC143C;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		  margin: 4px 2px;
+		  cursor: pointer;
+		  border-radius: 50%;
+	  }
+	  input[type=text] {
+		  padding: 12px 50px;
+		  margin: 8px 5px ;
+		  box-sizing: border-box;
+		}
+	.bt1 {
+		  font-family: 'Courier New', Courier, monospace;
+		  background-color: white;
+		  color: black;
+		  border-top: 2px solid #DC143C;
+		  border-bottom: 2px solid rgb(63, 20, 220);
+		  padding: 15px 32px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		  margin: 4px 2px;
+		  cursor: pointer;
+
+		  }
+	</style>
+</head>
+<body>
+<div style="text-align: center; margin: 80px ;background-color: white;">
+	<div class="create_site">
+		<h1> Create site</h1>
+	</div>
+
+	<form action="{{ url_for('save_site') }}" method="post">
+		<input type="text" name="name"  placeholder="Domain name (mydomain.com)" /><br>
+		<br>
+		<button class="bt1" type="submit">Create</button>
+	</form>
+</div>
+</body>

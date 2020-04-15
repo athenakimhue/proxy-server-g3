@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../static/style.css">
+   <script LANGUAGE='JavaScript'>
+    function start(){
+		window.alert('Started !');
+		window.location.href='{{ url_for('start_nginx') }}';
+		}
+	function stop(){
+		window.alert('Stoped !');
+		window.location.href='{{ url_for('stop_nginx') }}';
+		}
+	function reload(){
+		window.alert('Reloaded !');
+		window.location.href='{{ url_for('reload_nginx') }}';
+		}
+    function en_modsec(){
+		window.alert('Enabled Modsecurity !');
+		window.location.href='{{ url_for('en_modsec') }}';
+		}
+	function dis_modsec(){
+		window.alert('Disabled Modsecurity !');
+		window.location.href='{{ url_for('dis_modsec') }}';
+		}
+	</script>
+
+
+</head>
+<body>
+<div class="header">
+  <img src="../static/img/logo.png" height="200px" width="1000px">
+</div>
+<div class="topnav" style="font-size: 20px;">
+    <a href="{{ url_for('create_site') }}" style="background-color: #b793b3; border-top: 4px solid rgb(42, 4, 49);width:18%;float: left;">Create Domain</a>
+    <a href="{{ url_for('create_modsec') }}" style="background-color: #fbec9c; border-top: 4px solid rgb(62, 66, 8);width:18%;float: left;" >Create Modsec</a>
+    <a onclick="start()" style="background-color: #b7ee91; border-top: 4px solid #3E7520;width:18%;float: left;" >Start</a>
+    <a onclick="stop()" style="background-color: #dba3a3; border-top: 4px solid #DC143C;width:18%;float: left;" >Stop</a>
+    <a onclick="reload()" style="background-color: #a0d6ec; border-top: 4px solid rgb(14, 31, 182);width:18%;float: left;" >Reload</a>
+
+</div>
+
+<div class="row" >
+  <div class="leftcolumn">
+
+    <div class="card" style="border-left: 4px solid rgb(242, 105, 5); " >
+        <div class="roww">
+            <div style="width:40%;float: left;">
+                <h2 style="border-left: 4px solid rgb(242, 105, 5);"> Modsecutiry</h2>
+                <button class="bt2" style="background:#bcf3bc;" onclick="en_modsec()" >Enable</button>
+                <button class="bt2" style="background:pink;" onclick="dis_modsec()">Disable</button>
+                <button class="bt2" style="background:#f9f9b9;" onclick="location.href='{{ url_for('modsec_rules_lists') }}'">Modsec Rules Lists</button>
+            </div>
+            <div style="width:30%;float: left;">
+                <h2 style="border-left: 4px solid rgb(242, 105, 5);"> Edit conf</h2>
+                <button class="bt1" onclick="location.href='{{ url_for('host_config') }}'">Hosts</button>
+                <button class="bt1" onclick="location.href='{{ url_for('nginx_config') }}'" >Config</button>
+            </div>
+            <div style="width:30%;float: left;">
+                 <h2 style="border-left: 4px solid rgb(242, 105, 5);"> Port</h2>
+                	<form action="{{ url_for('save_listen_port') }}" method="post">
+                        <textarea name="port" rows="2" cols="20" style="color:green;">{{listen_port}}</textarea><br>
+                        <button  type="submit">Save port</button>
+                    </form>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card" style="border-left: 4px solid rgb(66, 56, 148);font-family: 'Courier New', Courier, monospace;">
+      <h2 style="border-left: 4px solid rgb(66, 56, 148);"> View Sites</h2>
+      <table class="tbl" style="text-align:center;">
+        <tr>
+            <th>File</th>
+            <th>Actions</th>
+        </tr>
+        {% for file in sites %}
+        <tr>
+            <td>{{ file.file }}</td>
+            <td>
+              <a href="{{ url_for('edit_site') }}?name={{ file.file.replace('.com','.conf') }}">Edit</a>
+              <a href="{{ url_for('delete_site') }}?name={{ file.file.replace('.com','.conf') }}">Delete</a>
+              <a href="{{ url_for('enable_site') }}?name={{ file.file.replace('.com','.conf') }}">Enable</a>
+              <a href="{{ url_for('disable_site') }}?name={{ file.file.replace('.com','.conf') }}">Disable</a>
+            </td>
+        </tr>
+        {% else %}
+          <tr align="center"><td colspan="3">You don't have any site configured.</td></tr>
+        {% endfor %}
+      </table>
+    </div>
+
+  </div>
+  <div class="rightcolumn">
+
+      <div class="card" style="border-left: 4px solid rgb(16, 223, 85);">
+      <h2 style="border-left: 4px solid rgb(16, 223, 85) ;"> View Status Logs</h2>
+		  <textarea name="conf" rows="5" cols="60" style="color:green;">{{ nginx_status }}</textarea><br>
+        </div>
+
+    <div class="card"  style="border-left: 4px solid #DC143C;">
+      <h2 style="border-left: 4px solid rgb(223, 47, 16) ;"> View Error Logs</h2>
+      <textarea name="conf" rows="5" cols="60" style="color:red;">{{ logs_error }}</textarea><br>
+    </div>
+
+    <div class="card" style="border-left: 4px solid rgb(14, 31, 182);">
+      <h2 style="border-left: 4px solid rgb(14, 31, 182) ;"> View Access Log</h2>
+		  <textarea name="conf" rows="5" cols="60" style="color:blue;">{{ logs_access }}</textarea><br>
+    </div>
+  </div>
+</div>
+
+<div style="border-top: 4px solid rgb(42, 4, 49);">
+<footer class="footer-distributed">
+  <div class="footer-left">
+    <h3>Proxy server Manager <span> H2+</span></h3>
+    <p class="footer-links">
+      <a href="#" class="link-1">Copyright © 2020 - H2+. All Rights Reserved</a>
+    </p>
+  </div>
+
+  <div class="footer-center">
+    <div>  
+      <p><span>141 Chien thang - Tan Trieu - Thanh Tri - </span> Ha Noi, Viet Nam</p>
+      <p><a>github.com/athenakimhue/Proxy_server_manager_H2+</a></p>
+    </div>
+  </div>
+</footer>
+</div>
+</body>
+</html>

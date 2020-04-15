@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Modsec Rules List</title>
+</head>
+<body>
+<div class="header">
+  <a href="{{url_for('index')}}">
+    <img src="../static/img/logo.png" height="200px" width="1000px">
+  </a>
+
+</div>
+
+<div>
+    <h2 style="text-align:center;"> Modsecurity Rules Lists</h2>
+    <table class="tbl" >
+        <tr>
+            <th>File</th>
+            <th>Actions</th>
+        </tr>
+        {% for file in sites %}
+        <tr>
+            <td>{{ file.file }}</td>
+            <td>
+              <a href="{{ url_for('edit_modsec') }}?name={{ file.file }}">Edit</a>
+              <a href="{{ url_for('delete_modsec') }}?name={{ file.file }}">Delete</a>
+            </td>
+        </tr>
+        {% else %}
+          <tr align="center"><td colspan="3">You don't have any site configured.</td></tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
