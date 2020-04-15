@@ -11,8 +11,7 @@
  - ./autogen.sh  && ./configure --enable-standalone-module --disable-mlogc && make
  - cd /usr/src/proxy-server-g3/
  - chmod 777 configure
- - ./configure --user=www-data --group=www-data --add-module=/usr/src/proxy-server-g3/ModSecurity/nginx/modsecurity  --add-module=/usr/src/proxy-server-g3/nginx_cookie_flag_module --with-http_ssl_module
-  make && make install
+ - ./configure --user=www-data --group=www-data --add-module=/usr/src/proxy-server-g3/ModSecurity/nginx/modsecurity  --add-module=/usr/src/proxy-server-g3/cookie_flag_module --with-http_ssl_module && make && make install
  - cp /usr/src/proxy-server-g3/conf/modsec_includes.conf /usr/local/nginx/conf/
  && cp /usr/src/proxy-server-g3/conf/modsecurity.conf /usr/local/nginx/conf/
  && cp /usr/src/proxy-server-g3/conf/unicode.mapping /usr/local/nginx/conf/
